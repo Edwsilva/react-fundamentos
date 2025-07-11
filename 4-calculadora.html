@@ -78,13 +78,14 @@
         primary: 'bg-(--primary)'
       }
 
-      function Button({
-        variant = 'default',
-        className, 
-        children,
-        ...props
-      
-      }) {
+      function Button(allProps) {
+        console.log('Todas as props:', allProps);
+        const {
+          variant = 'default',
+          className,
+          children,
+          ...props
+        } = allProps;
           console.log('Props recebidas no <Button>:', props); // 👈 Aqui!
         return(
           <Text 
@@ -113,6 +114,13 @@
               <main className="py-28 px-4">              
                 <Button>CE</Button>
                 <Button variant="primary">/</Button>
+                <Button 
+                  onClick={() => console.log("Botão clicado!")} 
+                  id="botao-exemplo" 
+                  type="submit"
+                >
+                  Enviar
+                </Button>
               </main>
           )
       }
