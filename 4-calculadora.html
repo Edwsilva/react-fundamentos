@@ -104,25 +104,28 @@
           >
           {children}
           </Text>
-        ) 
-          
+        )     
       }
 
+      function Card({className, children, ...props}) {
+        return (
+          <div className={`
+            bg-(--background) shadow-(--shadow)
+            rounded-2xl
+            ${className ? className : ''}
+            `}>
+            {children}
+          </div>
+        )
+      }
       function App() {
-        //  <Text variant='muted' class="text-5xl text-[--text-secondary] italic">Hello World!</Text>
-          return(
-              <main className="py-28 px-4">              
-                <Button>CE</Button>
-                <Button variant="primary">/</Button>
-                <Button 
-                  onClick={() => console.log("Botão clicado!")} 
-                  id="botao-exemplo" 
-                  type="submit"
-                >
-                  Enviar
-                </Button>
-              </main>
-          )
+        return(
+          <main className="py-28 px-4">              
+            <Card>
+              Testando Card
+            </Card>
+          </main>
+        )
       }
 
       ReactDOM.createRoot(document.getElementById('root')).render(
