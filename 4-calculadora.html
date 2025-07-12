@@ -126,12 +126,8 @@
         )
       }
 
-      function Calculator() {
+      function CalculatorDisplay() {
         return(
-          <Card className={`
-            flex flex-col gap-[1.625rem] w-[22.25rem]
-            pt-14 px-8 pb-8
-          `}>
           <div className={`
             flex flex-col gap-2 px-[1.375rem] 
             cursor-default select-none      
@@ -151,6 +147,16 @@
               
             </div>
           </div>
+        )
+      }
+
+      function Calculator() {
+        return(
+          <Card className={`
+            flex flex-col gap-[1.625rem] w-[22.25rem]
+            pt-14 px-8 pb-8
+          `}>
+            <CalculatorDisplay />
           </Card>
         )
       }
