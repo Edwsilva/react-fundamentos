@@ -38,7 +38,7 @@
      }
    </style>
 </head>
-<body className="text-(--text) font-(--font-sans)">
+<body class="text-(--text) font-(--font-sans)">
     <div id="root"></div>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -78,14 +78,21 @@
         primary: 'bg-(--primary)'
       }
 
-      function Button(allProps) {
-        console.log('Todas as props:', allProps);
-        const {
-          variant = 'default',
-          className,
-          children,
-          ...props
-        } = allProps;
+      // function Button(allProps) {
+      //   console.log('Todas as props:', allProps);
+      //   const {
+      //     variant = 'default',
+      //     className,
+      //     children,
+      //     ...props
+      //   } = allProps;
+      function Button({
+        variant = 'default',
+        className, 
+        children,
+        ...props
+      
+      }) {
           console.log('Props recebidas no <Button>:', props); // 👈 Aqui!
         return(
           <Text 
@@ -118,12 +125,44 @@
           </div>
         )
       }
-      function App() {
+
+      function Calculator() {
         return(
-          <main className="py-28 px-4">              
-            <Card>
-              Testando Card
-            </Card>
+          <Card className={`
+            flex flex-col gap-[1.625rem] w-[22.25rem]
+            pt-14 px-8 pb-8
+          `}>
+          <div className={`
+            flex flex-col gap-2 px-[1.375rem] 
+            cursor-default select-none      
+          `}>
+            <Text
+              as="div"
+              variant="muted"
+              className="flex items-center justify-end"
+            >
+              1 + 1
+            </Text>
+            <div className={`
+               flex items-center justify-between 
+            `}>
+              <Text variant="muted">=</Text>
+              <Text variant="blast">2</Text>
+              
+            </div>
+          </div>
+          </Card>
+        )
+      }
+      function App() {
+         // <Button>CE</Button>
+         // <Button variant="primary">/</Button>  
+        //  <Card>
+        //    Testando Card
+        //  </Card>
+        return(
+          <main className="py-28 px-4">  
+            <Calculator />
           </main>
         )
       }
