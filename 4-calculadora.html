@@ -38,7 +38,7 @@
      }
    </style>
 </head>
-<body class="text-(--text) font-(--font-sans)">
+  <body class="min-h-screen bg-linear-[180deg,_#807ECE_0%,_#807ECE_100%] text-(--text) font-(--font-sans)">
     <div id="root"></div>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -202,7 +202,7 @@
 
       function OperationHistory() {
         return(
-          <Card className="py-10 px-8">
+          <Card className="w-full py-10 px-8">
             <Text
               as="h1"
               variant="heading"
@@ -225,7 +225,14 @@
         //    Testando Card
         //  </Card>
         return(
-          <main className="py-28 px-4">  
+          <main className={`
+            py-28 px-4
+            flex flex-col sm:flex-row
+            items-center sm:items-stretch
+            gap-2
+          `}>  
+            
+            
             <Calculator />
             <OperationHistory />
           </main>
