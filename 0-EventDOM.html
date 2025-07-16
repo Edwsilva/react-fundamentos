@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocketseat - Reac.js - Fundamentos</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Transforma JSX em javascript puro -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        // OBS.: Para ver os eventos precisa executar no navegador e não na extensão show preview
+        function Alert() {
+            function handleAlertClick(event) {
+                console.log('Tag do elemento:', event.target.tagName);
+                console.log('ID (se houver):', event.target.id);
+                // Pegando o irmão acima do botão na tela que é o input no DOM
+                alert(event.target.previousSibling.value)
+                alert(event.target.innerText)
+                alert('Veja tagName e id no console!');
+
+            }
+            return (
+                <div>
+                    <input type="text" placeholder="digite algo..." />
+                    <button id="meuBotao" onClick={handleAlertClick}>Clique para mostrar eventos</button>
+                </div>
+            )
+        }
+
+        function App() {
+            return (
+                <main>
+                    <Alert />
+                </main>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+    </script>
+</body>
+
+</html>
