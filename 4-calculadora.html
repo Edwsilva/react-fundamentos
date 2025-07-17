@@ -203,6 +203,8 @@
 
           if (input === 'CE') {
             setResult("");
+            console.log("operation ", operation)
+            // Apaga a última operação incluindo o espaço.
             setOperation(operation.slice(0, -2));
             return;
           }
