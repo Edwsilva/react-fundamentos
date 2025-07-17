@@ -126,6 +126,47 @@
         )
       }
 
+      // Armazenando os botões em uma lista de lista
+      const buttons = [
+        [
+          // <div className="flex gap-3">
+          //   <Button className="w-16 h-16">CE</Button>
+          //   <Button className="flex-1 h-16">C</Button>
+          //   <Button className="w-16 h-16" variant="primary">/</Button>
+          // </div>
+          // If the className does not exist it will set the default value
+          // h-16 w-16 variant="default"
+          {input: "CE"},
+          {input: "C", className: "flex-1 h-16"},
+          {input: "/", variant: "primary"},
+        ],
+        [
+          {input: "7"},
+          {input: "8"},
+          {input: "9"},
+          {input: "*", variant: "primary"},
+        ],
+        [
+          {input: "4"},
+          {input: "5"},
+          {input: "6"},
+          {input: "-", variant: "primary"},
+        ],
+        [
+          {input: "1"},
+          {input: "2"},
+          {input: "3"},
+          {input: "+", variant: "primary"},
+        ],
+        [
+          {input: "0", className="flex-1 h-16"},
+          {input: "."},
+          {input: "=", variant: "primary"},
+        ],
+
+
+      ]
+
       function CalculatorDisplay({operation, result}) {
         return(
           <div className={`
