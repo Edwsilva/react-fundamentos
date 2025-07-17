@@ -212,13 +212,14 @@
           if (input === "=") {
             // eval(1 + 1) ele retornará 2
             // A vírgula não é considerada valor decimal
-            console.log("Operation ", operation)
+         
+            // const operationResult = eval(operation.replace(/,/g, '.'));
+            // const parsedResult = operationResult.toString()?.replace(/\./g, ',')
             const sanitized = operation
               .replace(/,/g, '.')   // vírgulas → pontos
               .replace(/\s+/g, ''); // remove espaços
 
             const operationResult = eval(sanitized);
-            console.log("operationResult ", operationResult)
             const parsedResult = operationResult.toFixed(2)?.replace(/\./g, ',')
             //console.log(operationResult)
             setResult(parsedResult)
