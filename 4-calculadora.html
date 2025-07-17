@@ -207,7 +207,12 @@
                         key={button.input}
                         //Complementando o classN\me
                         // IF button.className eu exibo, senão "w-16 h-16"
-                        className={button.className || "w-16 h-16"}>CE</Button>
+                        className={button.className || "w-16 h-16"}
+                        // Se não tiver variant o valor será default
+                        variant={button.variant}
+                        >
+                        CE
+                      </Button>
                      )})}
                   </div>
               ))}
