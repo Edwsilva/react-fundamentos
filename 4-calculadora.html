@@ -199,8 +199,16 @@
 
             <div className="flex flex-col gap-3">
               {buttons.map((row, index) => (
-                  <div className="flex gap-3">
-                    <Button className="w-16 h-16">CE</Button>
+                <div key={`row-${index}`} className="flex gap-3">
+                  {row.map(button => {
+                    console.log(button)
+                    return (
+                      <Button 
+                        key={button.input}
+                        //Complementando o classN\me
+                        // IF button.className eu exibo, senão "w-16 h-16"
+                        className={button.className || "w-16 h-16"}>CE</Button>
+                     )})}
                   </div>
               ))}
             </div>
