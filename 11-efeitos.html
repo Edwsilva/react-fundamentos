@@ -20,6 +20,9 @@
 
         React.useEffect(() => {
           console.log("Componente montado! ");
+          return () => {
+            console.log("Componente desmontado");
+          };
         }, []);
 
         React.useEffect(() => {
@@ -51,9 +54,15 @@
       }
 
       function App() {
+        const [show, setShow] = React.useState(true);
+
         return (
           <main>
-            <Counter />
+            <button onClick={() => setShow(!show)}>
+              Mostrar/Ocultar Contador
+            </button>
+            <hr />
+            {show && <Counter />}
           </main>
         );
       }
