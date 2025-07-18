@@ -169,6 +169,13 @@
         const [history, setHistory] = React.useState([]);
         const historyStoragekey = "history";
 
+        React.useEffect(() => {
+          const saveHistory = localStorage.getItem(historyStoragekey);
+          // Retornando um array vazio caso não exista algo no localStorage
+          // Sem isso o dá erro na function OperationHistory()
+
+          setHistory(JSON.parse(saveHistory || "[]"));
+        }, []);
         // para adicionar um novo valor no histórico
         function updateHistory(operation, parsedResult) {
           setHistory((prev) => {
@@ -181,6 +188,7 @@
 
             console.log("History ", updateHistory);
             //History  ['2+3=5']
+            // o return atualiza o history
             return updateHistory;
           });
         }
