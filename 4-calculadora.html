@@ -212,8 +212,6 @@
            
             const operationResult = eval(operation.replace(/,/g, '.'));
             const parsedResult = operationResult.toString()?.replace(/\./g, ',')
-            
-            
             setResult(parsedResult)
             // Sai sem executar o return abaixo
             return
