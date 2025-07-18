@@ -165,8 +165,15 @@
       const CalculatorContext = React.createContext();
 
       function CalculatorProvider({ children }) {
+        const [history, setHistory] = React.useState([]);
+
+        // para adicionar um novo valor no histórico
+        function updateHistory(operation, parsedResult) {
+          setHistory((prev) => [...prev, `${operation}=${parsedResult}`]);
+        }
+
         return (
-          <CalculatorContext.Provider value={{}}>
+          <CalculatorContext.Provider value={{ history, updateHistory }}>
             {children}
           </CalculatorContext.Provider>
         );
@@ -305,8 +312,10 @@
             gap-2
           `}
           >
-            <Calculator />
-            <OperationHistory />
+            <CalculatorProvider>
+              <Calculator />
+              <OperationHistory />
+            </CalculatorProvider>
           </main>
         );
       }
